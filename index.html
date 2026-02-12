@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30 Dias em Cartaz</title>
+<style>
+body {
+  margin: 0;
+  background: #0d0d0d;
+  color: #f2f2f2;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 600px;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid #f2f2f2;
+  color: #f2f2f2;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #f2f2f2;
+  color: #0d0d0d;
+}
+
+.fade {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div id="tela1" class="fade">
+    <h2>Estreia inesperada.</h2>
+    <p>2 artistas.<br>0 planejamento.<br>30 dias de repertório novo.</p>
+    <button onclick="proxima('tela1','tela2')">ver setlist</button>
+  </div>
+
+  <div id="tela2" class="hidden">
+    <h2>Setlist Oficial</h2>
+    <p>
+      🎤 Faixa 01 – Conversa que não falha<br>
+      🎤 Faixa 02 – Flores (versão especial)<br>
+      🎤 Faixa 03 – Dicas técnicas que misteriosamente aproximam<br>
+      🎤 Faixa 04 – Apoio antes da live<br>
+      🎤 Faixa 05 – Risada que melhora qualquer mixagem
+    </p>
+    <button onclick="proxima('tela2','tela3')">ouvir faixa bônus</button>
+  </div>
+
+  <div id="tela3" class="hidden">
+    <h2>Faixa Bônus</h2>
+    <p>
+      Improviso.<br><br>
+      Sem roteiro.<br><br>
+      Mas com uma harmonia que encaixou melhor do que o esperado.<br><br>
+      E algumas músicas<br>
+      a gente ainda não cantou.
+    </p>
+    <button onclick="proxima('tela3','tela4')">encerrar apresentação</button>
+  </div>
+
+  <div id="tela4" class="hidden">
+    <h2>30 dias de colaboração artística.</h2>
+    <p>
+      Ainda sem palco compartilhado.<br><br>
+      Mas com ensaios diários à distância.<br><br>
+      Próximo show: em definição.
+    </p>
+    <button onclick="abrirPlaylist()">ouvir evidências</button>
+  </div>
+
+</div>
+
+<script>
+function proxima(atual, proxima) {
+  document.getElementById(atual).classList.add("hidden");
+  const prox = document.getElementById(proxima);
+  prox.classList.remove("hidden");
+  prox.classList.add("fade");
+}
+
+function abrirPlaylist() {
+  window.open("COLE_AQUI_O_LINK_DA_PLAYLIST", "_blank");
+}
+</script>
+
+</body>
+</html>
